@@ -73,3 +73,23 @@ const validParenthesesHashmap = (sample) => {
 };
 
 console.log(validParenthesesHashmap(sample));
+
+// Max's NOTES -----------------------------------------------------------------------
+
+// Explanation:
+//  - As a general overview, we are forming a stack with open parentheses, and popping the top off the stack
+//    if the next closed parentheses matches according to our map. If the next close parentheses does not match
+//    according to our map, the string is invalid and we return false early. Finally, if our stack is empty, that means
+//    our string was valid. Else, if our stack is not empty, that means there were too many open parentheses.
+
+// Edge Cases and Assumptions:
+//  - We are assuming all the inputs only contain a string of parentheses, brackets, and curly braces
+//  - If the string length is less than 1, we return false early
+//  - If the string length is odd, we return false early
+
+// Time-complexity
+//  - Worst case: Linear O(n)
+//    -> If the string is valid, this algorithm will be the most inefficient because every index needs to
+//       be looped through.
+//  - Best case: Constant O(1)
+//    -> If the string is always odd, the function will always early return after the first line
